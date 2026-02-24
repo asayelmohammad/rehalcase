@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رحّال - عرض مشروع التخرج</title>
+    <title>رحّال - عرض مشروع التخرج (Behance Version)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -19,41 +19,33 @@
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
-            overflow: hidden;
+            padding: 0;
             -webkit-font-smoothing: antialiased;
         }
-        .slide-container {
-            height: 100vh;
-            width: 100%;
+        .presentation-container {
             display: flex;
             flex-direction: column;
-        }
-        .slides {
-            flex: 1;
-            position: relative;
-            overflow: hidden;
+            align-items: center;
+            width: 100%;
+            padding: 0;
         }
         .slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.5s ease-in-out;
-            transform: translateX(20px);
+            width: 100%;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 6rem 2rem;
+            border-bottom: 1px solid var(--border);
+            position: relative;
         }
-        .slide.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(0);
+        .slide:last-child {
+            border-bottom: none;
         }
         .slide-content {
             width: 100%;
-            max-width: 1000px;
+            max-width: 1100px;
         }
         .accent-bg { background-color: var(--accent); }
         .accent-text { color: var(--accent); }
@@ -61,795 +53,701 @@
         
         .card {
             background: white;
-            border-radius: 1.5rem;
+            border-radius: 2rem;
             border: 1px solid var(--border);
-            padding: 2rem;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
-        }
-
-        .nav-btn {
-            padding: 0.75rem;
-            border-radius: 9999px;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-        .nav-btn:hover:not(:disabled) {
-            background-color: var(--accent);
-            color: white;
-        }
-        .nav-btn:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-
-        .progress-bar {
-            height: 4px;
-            background-color: var(--border);
-            width: 100%;
-        }
-        .progress-fill {
-            height: 100%;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
+            padding: 3rem;
+            box-shadow: 0 10px 30px -5px rgb(0 0 0 / 0.05);
         }
 
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
         }
-        .float { animation: float 3s ease-in-out infinite; }
+        .float { animation: float 4s ease-in-out infinite; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
 
-<div class="slide-container">
-    <!-- Progress Bar -->
-    <div class="progress-bar">
-        <div id="progressFill" class="progress-fill" style="width: 5%;"></div>
-    </div>
-
-    <!-- Slides -->
-    <div class="slides" id="slidesContainer">
-        
-        <!-- 1. Title Slide -->
-        <div class="slide active" id="slide-1">
-            <div class="slide-content text-center space-y-8">
-                <div class="inline-block p-6 border-2 border-accent rounded-full mb-4 float">
-                    <i data-lucide="compass" class="w-16 h-16 accent-text"></i>
+<div class="presentation-container">
+    
+    <!-- 1. Title Slide -->
+    <section class="slide">
+        <div class="slide-content text-center space-y-12">
+            <h1 class="text-9xl font-black tracking-tighter mb-4">رحّال</h1>
+            <p class="text-4xl accent-text font-light">اكتشف العالم مع رحّال</p>
+            
+            <!-- Website Mockup Image -->
+            <div class="mt-16 relative mx-auto max-w-5xl">
+                <div class="rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border-8 border-white transform hover:scale-[1.02] transition-transform duration-700">
+                    <img src="img/her.jpg" alt="Rehaal Website Mockup" class="w-full h-auto" referrerPolicy="no-referrer">
                 </div>
-                <h1 class="text-8xl font-black tracking-tighter">رحّال</h1>
-                <p class="text-3xl accent-text font-light">اكتشف العالم مع رحّال</p>
-                <div class="pt-12">
-                    <p class="text-lg opacity-60">مشروع تخرج: منصة سياحية ذكية لاكتشاف العالم</p>
+                <!-- Decorative element -->
+                <div class="absolute -bottom-6 -right-6 w-32 h-32 accent-bg rounded-full -z-10 opacity-20 blur-2xl"></div>
+                <div class="absolute -top-6 -left-6 w-48 h-48 accent-bg rounded-full -z-10 opacity-10 blur-3xl"></div>
+            </div>
+
+            <div class="pt-16">
+                <p class="text-xl opacity-60">مشروع تخرج: منصة سياحية ذكية لاكتشاف العالم</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Team Members -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">فريق العمل</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="card text-center space-y-6">
+                    <div class="w-24 h-24 bg-[#F5F2ED] rounded-full flex items-center justify-center mx-auto">
+                        <i data-lucide="users" class="accent-text w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold">عضو الفريق الأول</h3>
+                    <div class="space-y-2 text-xl opacity-70">
+                        <p>العمر: 22 سنة</p>
+                        <p>التخصص: نظم معلومات</p>
+                    </div>
+                </div>
+                <div class="card text-center space-y-6">
+                    <div class="w-24 h-24 bg-[#F5F2ED] rounded-full flex items-center justify-center mx-auto">
+                        <i data-lucide="users" class="accent-text w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold">عضو الفريق الثاني</h3>
+                    <div class="space-y-2 text-xl opacity-70">
+                        <p>العمر: 22 سنة</p>
+                        <p>التخصص: علوم حاسب</p>
+                    </div>
+                </div>
+                <div class="card text-center space-y-6">
+                    <div class="w-24 h-24 bg-[#F5F2ED] rounded-full flex items-center justify-center mx-auto">
+                        <i data-lucide="users" class="accent-text w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold">عضو الفريق الثالث</h3>
+                    <div class="space-y-2 text-xl opacity-70">
+                        <p>العمر: 23 سنة</p>
+                        <p>التخصص: هندسة برمجيات</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- 2. Team Members -->
-        <div class="slide" id="slide-2">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">فريق العمل</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
+    <!-- 3. Project Idea -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">فكرة المشروع</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="flex-1 space-y-8">
+                    <p class="text-3xl leading-relaxed font-medium">
+                        رحّال هو موقع سياحي ذكي يساعد المستخدمين على اكتشاف المدن حول العالم بسهولة من خلال تجربة رقمية متكاملة.
+                    </p>
+                    <ul class="space-y-6">
+                        <li class="flex items-center gap-5 text-2xl opacity-80">
+                            <i data-lucide="info" class="accent-text w-8 h-8"></i> معلومات شاملة عن المدينة
+                        </li>
+                        <li class="flex items-center gap-5 text-2xl opacity-80">
+                            <i data-lucide="calendar" class="accent-text w-8 h-8"></i> أحدث الفعاليات والأنشطة
+                        </li>
+                        <li class="flex items-center gap-5 text-2xl opacity-80">
+                            <i data-lucide="hotel" class="accent-text w-8 h-8"></i> توصيات فنادق مختارة
+                        </li>
+                        <li class="flex items-center gap-5 text-2xl opacity-80">
+                            <i data-lucide="check-circle-2" class="accent-text w-8 h-8"></i> نصائح سفر محلية
+                        </li>
+                        <li class="flex items-center gap-5 text-2xl opacity-80">
+                            <i data-lucide="coins" class="accent-text w-8 h-8"></i> أدوات سفر ذكية (محول عملات)
+                        </li>
+                    </ul>
                 </div>
+                <div class="flex-1">
+                    <img src="https://picsum.photos/seed/travel/800/600" alt="Travel" class="rounded-[3rem] shadow-2xl border-8 border-white" referrerPolicy="no-referrer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Problem -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">المشكلة</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="card relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-12 opacity-5">
+                    <i data-lucide="alert-circle" style="width: 200px; height: 200px;"></i>
+                </div>
+                <div class="space-y-10 relative z-10">
+                    <p class="text-3xl leading-loose">
+                        يواجه المسافر تحديات كبيرة عند التخطيط لرحلته، حيث يضطر للتنقل بين عدة مواقع وتطبيقات للحصول على:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="flex items-center gap-5 bg-[#F5F2ED] p-6 rounded-3xl border border-[#E8E1D9]">
+                            <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                            <span class="text-2xl font-bold">معلومات المدينة</span>
+                        </div>
+                        <div class="flex items-center gap-5 bg-[#F5F2ED] p-6 rounded-3xl border border-[#E8E1D9]">
+                            <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                            <span class="text-2xl font-bold">أفضل الفنادق</span>
+                        </div>
+                        <div class="flex items-center gap-5 bg-[#F5F2ED] p-6 rounded-3xl border border-[#E8E1D9]">
+                            <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                            <span class="text-2xl font-bold">الفعاليات الحالية</span>
+                        </div>
+                        <div class="flex items-center gap-5 bg-[#F5F2ED] p-6 rounded-3xl border border-[#E8E1D9]">
+                            <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                            <span class="text-2xl font-bold">نصائح محلية</span>
+                        </div>
+                    </div>
+                    <p class="text-2xl text-red-600 font-black mt-6 text-center">
+                        مما يسبب تشتتاً كبيراً وضياعاً للوقت والجهد.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Solution -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">الحل</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="flex-1 accent-bg text-white p-16 rounded-[4rem] shadow-2xl flex flex-col justify-center">
+                    <h3 class="text-5xl font-black mb-8">منصة رحّال</h3>
+                    <p class="text-3xl leading-relaxed opacity-90">
+                        تجمع رحّال كل ما يحتاجه المسافر في منصة واحدة منظمة وسهلة الاستخدام، لتوفر عليه عناء البحث المتكرر وتضمن له رحلة ممتعة ومخطط لها بدقة.
+                    </p>
+                </div>
+                <div class="flex-1 grid grid-cols-2 gap-6">
+                    <div class="card flex flex-col items-center justify-center text-center p-8">
+                        <i data-lucide="layers" class="accent-text w-12 h-12 mb-4"></i>
+                        <span class="text-xl font-bold">تكامل البيانات</span>
+                    </div>
+                    <div class="card flex flex-col items-center justify-center text-center p-8">
+                        <i data-lucide="smartphone" class="accent-text w-12 h-12 mb-4"></i>
+                        <span class="text-xl font-bold">سهولة الوصول</span>
+                    </div>
+                    <div class="card flex flex-col items-center justify-center text-center p-8">
+                        <i data-lucide="globe" class="accent-text w-12 h-12 mb-4"></i>
+                        <span class="text-xl font-bold">تغطية عالمية</span>
+                    </div>
+                    <div class="card flex flex-col items-center justify-center text-center p-8">
+                        <i data-lucide="check-circle-2" class="accent-text w-12 h-12 mb-4"></i>
+                        <span class="text-xl font-bold">دقة المعلومات</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Project Goals -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">أهداف المشروع</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="card flex gap-8 items-start">
+                    <div class="p-5 bg-[#F5F2ED] rounded-3xl accent-text">
+                        <i data-lucide="compass" class="w-10 h-10"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-3xl font-bold mb-3">تسهيل تجربة السفر</h4>
+                        <p class="text-xl opacity-70">تقليل الوقت المستغرق في التخطيط والبحث عن الوجهات.</p>
+                    </div>
+                </div>
+                <div class="card flex gap-8 items-start">
+                    <div class="p-5 bg-[#F5F2ED] rounded-3xl accent-text">
+                        <i data-lucide="layers" class="w-10 h-10"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-3xl font-bold mb-3">جمع المعلومات</h4>
+                        <p class="text-xl opacity-70">توفير قاعدة بيانات شاملة لكل مدينة في مكان واحد.</p>
+                    </div>
+                </div>
+                <div class="card flex gap-8 items-start">
+                    <div class="p-5 bg-[#F5F2ED] rounded-3xl accent-text">
+                        <i data-lucide="layout" class="w-10 h-10"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-3xl font-bold mb-3">تحسين تجربة المستخدم</h4>
+                        <p class="text-xl opacity-70">واجهات عصرية وبسيطة تضمن سهولة الاستخدام.</p>
+                    </div>
+                </div>
+                <div class="card flex gap-8 items-start">
+                    <div class="p-5 bg-[#F5F2ED] rounded-3xl accent-text">
+                        <i data-lucide="globe" class="w-10 h-10"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-3xl font-bold mb-3">دعم السياحة الرقمية</h4>
+                        <p class="text-xl opacity-70">المساهمة في التحول الرقمي لقطاع السياحة العالمي.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Target Audience -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">الفئة المستهدفة</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="flex justify-center gap-12 flex-wrap">
+                <div class="w-64 h-64 bg-white rounded-full border-4 border-accent flex flex-col items-center justify-center text-center p-6 shadow-xl hover:scale-110 transition-transform">
+                    <i data-lucide="briefcase" class="accent-text w-12 h-12 mb-4"></i>
+                    <span class="text-2xl font-bold">المسافرون</span>
+                </div>
+                <div class="w-64 h-64 bg-white rounded-full border-4 border-accent flex flex-col items-center justify-center text-center p-6 shadow-xl hover:scale-110 transition-transform">
+                    <i data-lucide="map-pin" class="accent-text w-12 h-12 mb-4"></i>
+                    <span class="text-2xl font-bold">السياح</span>
+                </div>
+                <div class="w-64 h-64 bg-white rounded-full border-4 border-accent flex flex-col items-center justify-center text-center p-6 shadow-xl hover:scale-110 transition-transform">
+                    <i data-lucide="compass" class="accent-text w-12 h-12 mb-4"></i>
+                    <span class="text-2xl font-bold">محبو الاستكشاف</span>
+                </div>
+                <div class="w-64 h-64 bg-white rounded-full border-4 border-accent flex flex-col items-center justify-center text-center p-6 shadow-xl hover:scale-110 transition-transform">
+                    <i data-lucide="users" class="accent-text w-12 h-12 mb-4"></i>
+                    <span class="text-2xl font-bold">الطلاب المبتعثون</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Services -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">خدمات الموقع</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="card text-center space-y-6">
+                    <div class="text-7xl">🗺️</div>
+                    <h4 class="text-2xl font-bold">دليل سياحي</h4>
+                    <p class="text-lg opacity-70">أفضل المعالم والمطاعم والفنادق المختارة بعناية.</p>
+                </div>
+                <div class="card text-center space-y-6">
+                    <div class="text-7xl">💰</div>
+                    <h4 class="text-2xl font-bold">أدوات مالية</h4>
+                    <p class="text-lg opacity-70">محول عملات محدث لتسهيل المعاملات المالية.</p>
+                </div>
+                <div class="card text-center space-y-6">
+                    <div class="text-7xl">🗣️</div>
+                    <h4 class="text-2xl font-bold">مساعد لغوي</h4>
+                    <p class="text-lg opacity-70">عبارات ترحيبية وتوجيهات للتواصل مع السكان.</p>
+                </div>
+                <div class="card text-center space-y-6">
+                    <div class="text-7xl">🤖</div>
+                    <h4 class="text-2xl font-bold">مساعد رحال الذكي</h4>
+                    <p class="text-lg opacity-70">مساعدك في اختيار أفضل الوجهات والنصائح.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Structure -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">هيكل الموقع</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="card">
+                <h3 class="text-3xl font-black mb-12 text-center">كل مدينة تحتوي على:</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="card text-center space-y-4 hover:-translate-y-2 transition-transform">
-                        <div class="w-20 h-20 bg-[#F5F2ED] rounded-full flex items-center justify-center mx-auto">
-                            <i data-lucide="users" class="accent-text"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold">عضو الفريق الأول</h3>
-                        <div class="space-y-1 opacity-70">
-                            <p>العمر: 22 سنة</p>
-                            <p>التخصص: نظم معلومات</p>
+                    <div class="flex items-center gap-5 bg-[#F5F2ED] p-6 rounded-[2rem]">
+                        <i data-lucide="check-circle-2" class="accent-text w-8 h-8"></i>
+                        <span class="text-xl font-bold">نبذة تعريفية شاملة</span>
+                    </div>
+                    <div class="flex items-center gap-5 bg-[#F5F2ED] p-6 rounded-[2rem]">
+                        <i data-lucide="check-circle-2" class="accent-text w-8 h-8"></i>
+                        <span class="text-xl font-bold">أهم المعالم السياحية</span>
+                    </div>
+                    <div class="flex items-center gap-5 bg-[#F5F2ED] p-6 rounded-[2rem]">
+                        <i data-lucide="check-circle-2" class="accent-text w-8 h-8"></i>
+                        <span class="text-xl font-bold">الفعاليات الحالية</span>
+                    </div>
+                    <div class="flex items-center gap-5 bg-[#F5F2ED] p-6 rounded-[2rem]">
+                        <i data-lucide="check-circle-2" class="accent-text w-8 h-8"></i>
+                        <span class="text-xl font-bold">قائمة فنادق مقترحة</span>
+                    </div>
+                    <div class="flex items-center gap-5 bg-[#F5F2ED] p-6 rounded-[2rem]">
+                        <i data-lucide="check-circle-2" class="accent-text w-8 h-8"></i>
+                        <span class="text-xl font-bold">نصائح مهمة للمسافرين</span>
+                    </div>
+                    <div class="flex items-center gap-5 bg-[#F5F2ED] p-6 rounded-[2rem]">
+                        <i data-lucide="check-circle-2" class="accent-text w-8 h-8"></i>
+                        <span class="text-xl font-bold">صور جذابة وعالية الجودة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Tech -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">التقنيات المستخدمة</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div class="space-y-10">
+                    <h3 class="text-4xl font-black flex items-center gap-5">
+                        <i data-lucide="code-2" class="accent-text w-12 h-12"></i> Frontend
+                    </h3>
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="card text-center font-bold text-2xl p-10">HTML5</div>
+                        <div class="card text-center font-bold text-2xl p-10">CSS3</div>
+                        <div class="card text-center font-bold text-2xl p-10">JS</div>
+                    </div>
+                </div>
+                <div class="space-y-10">
+                    <h3 class="text-4xl font-black flex items-center gap-5">
+                        <i data-lucide="palette" class="accent-text w-12 h-12"></i> Design
+                    </h3>
+                    <div class="card text-center font-bold text-3xl inline-block px-20 py-10">Figma</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Flowchart -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">مخطط تدفق العمليات</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="flex flex-col items-center gap-6 py-8">
+                <div class="bg-white px-16 py-6 rounded-full border-4 border-accent shadow-xl flex items-center gap-6">
+                    <i data-lucide="users" class="accent-text w-8 h-8"></i> <span class="text-2xl font-black">المستخدم</span>
+                </div>
+                <div class="w-1.5 h-12 bg-[#C2A383]/40 rounded-full"></div>
+                <div class="bg-white px-16 py-6 rounded-full border-4 border-accent shadow-xl flex items-center gap-6">
+                    <i data-lucide="layout" class="accent-text w-8 h-8"></i> <span class="text-2xl font-black">الصفحة الرئيسية</span>
+                </div>
+                <div class="w-1.5 h-12 bg-[#C2A383]/40 rounded-full"></div>
+                <div class="bg-white px-16 py-6 rounded-full border-4 border-accent shadow-xl flex items-center gap-6">
+                    <i data-lucide="map-pin" class="accent-text w-8 h-8"></i> <span class="text-2xl font-black">اختيار مدينة</span>
+                </div>
+                <div class="w-1.5 h-12 bg-[#C2A383]/40 rounded-full"></div>
+                <div class="bg-white px-16 py-6 rounded-full border-4 border-accent shadow-xl flex items-center gap-6">
+                    <i data-lucide="info" class="accent-text w-8 h-8"></i> <span class="text-2xl font-black">عرض البيانات</span>
+                </div>
+                <div class="w-1.5 h-12 bg-[#C2A383]/40 rounded-full"></div>
+                <div class="bg-white px-16 py-6 rounded-full border-4 border-accent shadow-xl flex items-center gap-6">
+                    <i data-lucide="coins" class="accent-text w-8 h-8"></i> <span class="text-2xl font-black">أدوات السفر</span>
+                </div>
+                <div class="w-1.5 h-12 bg-[#C2A383]/40 rounded-full"></div>
+                <div class="bg-white px-16 py-6 rounded-full border-4 border-accent shadow-xl flex items-center gap-6">
+                    <i data-lucide="message-square" class="accent-text w-8 h-8"></i> <span class="text-2xl font-black">تواصل معنا</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Low Fidelity -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">Low Fidelity Wireframe</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div class="space-y-6">
+                    <p class="text-center text-3xl font-black">الصفحة الرئيسية</p>
+                    <div class="aspect-[4/3] bg-gray-100 rounded-[3rem] border-4 border-dashed border-gray-300 p-8 flex flex-col gap-4">
+                        <div class="h-12 bg-gray-200 rounded-xl w-full"></div>
+                        <div class="h-48 bg-gray-200 rounded-3xl w-full"></div>
+                        <div class="grid grid-cols-4 gap-4">
+                            <div class="h-20 bg-gray-200 rounded-2xl"></div>
+                            <div class="h-20 bg-gray-200 rounded-2xl"></div>
+                            <div class="h-20 bg-gray-200 rounded-2xl"></div>
+                            <div class="h-20 bg-gray-200 rounded-2xl"></div>
                         </div>
                     </div>
-                    <div class="card text-center space-y-4 hover:-translate-y-2 transition-transform">
-                        <div class="w-20 h-20 bg-[#F5F2ED] rounded-full flex items-center justify-center mx-auto">
-                            <i data-lucide="users" class="accent-text"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold">عضو الفريق الثاني</h3>
-                        <div class="space-y-1 opacity-70">
-                            <p>العمر: 22 سنة</p>
-                            <p>التخصص: علوم حاسب</p>
-                        </div>
-                    </div>
-                    <div class="card text-center space-y-4 hover:-translate-y-2 transition-transform">
-                        <div class="w-20 h-20 bg-[#F5F2ED] rounded-full flex items-center justify-center mx-auto">
-                            <i data-lucide="users" class="accent-text"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold">عضو الفريق الثالث</h3>
-                        <div class="space-y-1 opacity-70">
-                            <p>العمر: 23 سنة</p>
-                            <p>التخصص: هندسة برمجيات</p>
+                </div>
+                <div class="space-y-6">
+                    <p class="text-center text-3xl font-black">صفحة المدينة</p>
+                    <div class="aspect-[4/3] bg-gray-100 rounded-[3rem] border-4 border-dashed border-gray-300 p-8 flex flex-col gap-4">
+                        <div class="h-32 bg-gray-200 rounded-3xl w-full"></div>
+                        <div class="h-12 bg-gray-200 rounded-xl w-1/2"></div>
+                        <div class="h-24 bg-gray-200 rounded-2xl w-full"></div>
+                        <div class="grid grid-cols-2 gap-4 flex-1">
+                            <div class="bg-gray-200 rounded-3xl"></div>
+                            <div class="bg-gray-200 rounded-3xl"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- 3. Project Idea -->
-        <div class="slide" id="slide-3">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">فكرة المشروع</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="flex-1 space-y-6">
-                        <p class="text-2xl leading-relaxed">
-                            رحّال هو موقع سياحي ذكي يساعد المستخدمين على اكتشاف المدن حول العالم بسهولة من خلال تجربة رقمية متكاملة.
-                        </p>
-                        <ul class="space-y-4">
-                            <li class="flex items-center gap-4 text-xl opacity-80">
-                                <i data-lucide="info" class="accent-text"></i> معلومات شاملة عن المدينة
-                            </li>
-                            <li class="flex items-center gap-4 text-xl opacity-80">
-                                <i data-lucide="calendar" class="accent-text"></i> أحدث الفعاليات والأنشطة
-                            </li>
-                            <li class="flex items-center gap-4 text-xl opacity-80">
-                                <i data-lucide="hotel" class="accent-text"></i> توصيات فنادق مختارة
-                            </li>
-                            <li class="flex items-center gap-4 text-xl opacity-80">
-                                <i data-lucide="check-circle-2" class="accent-text"></i> نصائح سفر محلية
-                            </li>
-                            <li class="flex items-center gap-4 text-xl opacity-80">
-                                <i data-lucide="coins" class="accent-text"></i> أدوات سفر ذكية (محول عملات)
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="flex-1">
-                        <img src="https://picsum.photos/seed/travel/600/400" alt="Travel" class="rounded-3xl shadow-lg border-4 border-white" referrerPolicy="no-referrer">
-                    </div>
-                </div>
+    <!-- 13. High Fidelity -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">مبادئ التصميم (High Fidelity)</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
             </div>
-        </div>
-
-        <!-- 4. Problem -->
-        <div class="slide" id="slide-4">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">المشكلة</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="card relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-8 opacity-10">
-                        <i data-lucide="alert-circle" style="width: 120px; height: 120px;"></i>
-                    </div>
-                    <div class="space-y-8 relative z-10">
-                        <p class="text-2xl leading-loose">
-                            يواجه المسافر تحديات كبيرة عند التخطيط لرحلته، حيث يضطر للتنقل بين عدة مواقع وتطبيقات للحصول على:
-                        </p>
-                        <div class="grid grid-cols-2 gap-6">
-                            <div class="flex items-center gap-3 bg-[#F5F2ED] p-4 rounded-2xl border border-[#E8E1D9]">
-                                <div class="w-2 h-2 bg-red-400 rounded-full"></div>
-                                <span class="text-lg font-medium">معلومات المدينة</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div class="space-y-12">
+                    <div>
+                        <h4 class="text-3xl font-black mb-8">لوحة الألوان</h4>
+                        <div class="flex gap-8">
+                            <div class="text-center space-y-4">
+                                <div class="w-24 h-24 rounded-[2rem] shadow-inner border border-black/5" style="background-color: #F5F2ED;"></div>
+                                <span class="text-lg font-bold">بيج رملي</span>
                             </div>
-                            <div class="flex items-center gap-3 bg-[#F5F2ED] p-4 rounded-2xl border border-[#E8E1D9]">
-                                <div class="w-2 h-2 bg-red-400 rounded-full"></div>
-                                <span class="text-lg font-medium">أفضل الفنادق</span>
+                            <div class="text-center space-y-4">
+                                <div class="w-24 h-24 rounded-[2rem] shadow-inner border border-black/5" style="background-color: #C2A383;"></div>
+                                <span class="text-lg font-bold">بني ذهبي</span>
                             </div>
-                            <div class="flex items-center gap-3 bg-[#F5F2ED] p-4 rounded-2xl border border-[#E8E1D9]">
-                                <div class="w-2 h-2 bg-red-400 rounded-full"></div>
-                                <span class="text-lg font-medium">الفعاليات الحالية</span>
-                            </div>
-                            <div class="flex items-center gap-3 bg-[#F5F2ED] p-4 rounded-2xl border border-[#E8E1D9]">
-                                <div class="w-2 h-2 bg-red-400 rounded-full"></div>
-                                <span class="text-lg font-medium">نصائح محلية</span>
-                            </div>
-                        </div>
-                        <p class="text-xl text-red-600 font-bold mt-4">
-                            مما يسبب تشتتاً كبيراً وضياعاً للوقت والجهد.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 5. Solution -->
-        <div class="slide" id="slide-5">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">الحل</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="flex flex-col md:flex-row gap-8">
-                    <div class="flex-1 accent-bg text-white p-12 rounded-[3rem] shadow-xl flex flex-col justify-center">
-                        <h3 class="text-4xl font-bold mb-6">منصة رحّال</h3>
-                        <p class="text-2xl leading-relaxed opacity-90">
-                            تجمع رحّال كل ما يحتاجه المسافر في منصة واحدة منظمة وسهلة الاستخدام، لتوفر عليه عناء البحث المتكرر وتضمن له رحلة ممتعة ومخطط لها بدقة.
-                        </p>
-                    </div>
-                    <div class="flex-1 grid grid-cols-2 gap-4">
-                        <div class="card flex flex-col items-center justify-center text-center">
-                            <i data-lucide="layers" class="accent-text mb-2"></i>
-                            <span class="font-bold">تكامل البيانات</span>
-                        </div>
-                        <div class="card flex flex-col items-center justify-center text-center">
-                            <i data-lucide="smartphone" class="accent-text mb-2"></i>
-                            <span class="font-bold">سهولة الوصول</span>
-                        </div>
-                        <div class="card flex flex-col items-center justify-center text-center">
-                            <i data-lucide="globe" class="accent-text mb-2"></i>
-                            <span class="font-bold">تغطية عالمية</span>
-                        </div>
-                        <div class="card flex flex-col items-center justify-center text-center">
-                            <i data-lucide="check-circle-2" class="accent-text mb-2"></i>
-                            <span class="font-bold">دقة المعلومات</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 6. Project Goals -->
-        <div class="slide" id="slide-6">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">أهداف المشروع</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card flex gap-6 items-start">
-                        <div class="p-4 bg-[#F5F2ED] rounded-2xl accent-text">
-                            <i data-lucide="compass"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-2xl font-bold mb-2">تسهيل تجربة السفر</h4>
-                            <p class="text-lg opacity-70">تقليل الوقت المستغرق في التخطيط والبحث عن الوجهات.</p>
-                        </div>
-                    </div>
-                    <div class="card flex gap-6 items-start">
-                        <div class="p-4 bg-[#F5F2ED] rounded-2xl accent-text">
-                            <i data-lucide="layers"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-2xl font-bold mb-2">جمع المعلومات</h4>
-                            <p class="text-lg opacity-70">توفير قاعدة بيانات شاملة لكل مدينة في مكان واحد.</p>
-                        </div>
-                    </div>
-                    <div class="card flex gap-6 items-start">
-                        <div class="p-4 bg-[#F5F2ED] rounded-2xl accent-text">
-                            <i data-lucide="layout"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-2xl font-bold mb-2">تحسين تجربة المستخدم</h4>
-                            <p class="text-lg opacity-70">واجهات عصرية وبسيطة تضمن سهولة الاستخدام.</p>
-                        </div>
-                    </div>
-                    <div class="card flex gap-6 items-start">
-                        <div class="p-4 bg-[#F5F2ED] rounded-2xl accent-text">
-                            <i data-lucide="globe"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-2xl font-bold mb-2">دعم السياحة الرقمية</h4>
-                            <p class="text-lg opacity-70">المساهمة في التحول الرقمي لقطاع السياحة العالمي.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 7. Target Audience -->
-        <div class="slide" id="slide-7">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">الفئة المستهدفة</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="flex justify-center gap-8 flex-wrap">
-                    <div class="w-48 h-48 bg-white rounded-full border-2 border-accent flex flex-col items-center justify-center text-center p-4 shadow-sm hover:scale-105 transition-transform">
-                        <i data-lucide="briefcase" class="accent-text mb-2"></i>
-                        <span class="text-xl font-bold">المسافرون</span>
-                    </div>
-                    <div class="w-48 h-48 bg-white rounded-full border-2 border-accent flex flex-col items-center justify-center text-center p-4 shadow-sm hover:scale-105 transition-transform">
-                        <i data-lucide="map-pin" class="accent-text mb-2"></i>
-                        <span class="text-xl font-bold">السياح</span>
-                    </div>
-                    <div class="w-48 h-48 bg-white rounded-full border-2 border-accent flex flex-col items-center justify-center text-center p-4 shadow-sm hover:scale-105 transition-transform">
-                        <i data-lucide="compass" class="accent-text mb-2"></i>
-                        <span class="text-xl font-bold">محبو الاستكشاف</span>
-                    </div>
-                    <div class="w-48 h-48 bg-white rounded-full border-2 border-accent flex flex-col items-center justify-center text-center p-4 shadow-sm hover:scale-105 transition-transform">
-                        <i data-lucide="users" class="accent-text mb-2"></i>
-                        <span class="text-xl font-bold">الطلاب المبتعثون</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 8. Services -->
-        <div class="slide" id="slide-8">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">خدمات الموقع</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="card text-center space-y-4">
-                        <div class="text-5xl">🗺️</div>
-                        <h4 class="text-xl font-bold">دليل سياحي</h4>
-                        <p class="text-sm opacity-70">أفضل المعالم والمطاعم والفنادق المختارة بعناية.</p>
-                    </div>
-                    <div class="card text-center space-y-4">
-                        <div class="text-5xl">💰</div>
-                        <h4 class="text-xl font-bold">أدوات مالية</h4>
-                        <p class="text-sm opacity-70">محول عملات محدث لتسهيل المعاملات المالية.</p>
-                    </div>
-                    <div class="card text-center space-y-4">
-                        <div class="text-5xl">🗣️</div>
-                        <h4 class="text-xl font-bold">مساعد لغوي</h4>
-                        <p class="text-sm opacity-70">عبارات ترحيبية وتوجيهات للتواصل مع السكان.</p>
-                    </div>
-                    <div class="card text-center space-y-4">
-                        <div class="text-5xl">🤖</div>
-                        <h4 class="text-xl font-bold">مساعد رحال الذكي</h4>
-                        <p class="text-sm opacity-70">مساعدك في اختيار أفضل الوجهات والنصائح.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 9. Structure -->
-        <div class="slide" id="slide-9">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">هيكل الموقع</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="card">
-                    <h3 class="text-2xl font-bold mb-8 text-center">كل مدينة تحتوي على:</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                        <div class="flex items-center gap-3 bg-[#F5F2ED] p-4 rounded-2xl">
-                            <i data-lucide="check-circle-2" class="accent-text w-5 h-5"></i>
-                            <span class="text-lg">نبذة تعريفية شاملة</span>
-                        </div>
-                        <div class="flex items-center gap-3 bg-[#F5F2ED] p-4 rounded-2xl">
-                            <i data-lucide="check-circle-2" class="accent-text w-5 h-5"></i>
-                            <span class="text-lg">أهم المعالم السياحية</span>
-                        </div>
-                        <div class="flex items-center gap-3 bg-[#F5F2ED] p-4 rounded-2xl">
-                            <i data-lucide="check-circle-2" class="accent-text w-5 h-5"></i>
-                            <span class="text-lg">الفعاليات الحالية</span>
-                        </div>
-                        <div class="flex items-center gap-3 bg-[#F5F2ED] p-4 rounded-2xl">
-                            <i data-lucide="check-circle-2" class="accent-text w-5 h-5"></i>
-                            <span class="text-lg">قائمة فنادق مقترحة</span>
-                        </div>
-                        <div class="flex items-center gap-3 bg-[#F5F2ED] p-4 rounded-2xl">
-                            <i data-lucide="check-circle-2" class="accent-text w-5 h-5"></i>
-                            <span class="text-lg">نصائح مهمة للمسافرين</span>
-                        </div>
-                        <div class="flex items-center gap-3 bg-[#F5F2ED] p-4 rounded-2xl">
-                            <i data-lucide="check-circle-2" class="accent-text w-5 h-5"></i>
-                            <span class="text-lg">صور جذابة وعالية الجودة</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 10. Tech -->
-        <div class="slide" id="slide-10">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">التقنيات المستخدمة</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="space-y-6">
-                        <h3 class="text-3xl font-bold flex items-center gap-3">
-                            <i data-lucide="code-2" class="accent-text"></i> Frontend
-                        </h3>
-                        <div class="grid grid-cols-3 gap-4">
-                            <div class="card text-center font-bold">HTML5</div>
-                            <div class="card text-center font-bold">CSS3</div>
-                            <div class="card text-center font-bold">JavaScript</div>
-                        </div>
-                    </div>
-                    <div class="space-y-6">
-                        <h3 class="text-3xl font-bold flex items-center gap-3">
-                            <i data-lucide="palette" class="accent-text"></i> Design
-                        </h3>
-                        <div class="card text-center font-bold inline-block px-12">Figma</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 11. Flowchart -->
-        <div class="slide" id="slide-11">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">مخطط تدفق العمليات</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="flex flex-col items-center gap-4 py-4">
-                    <div class="bg-white px-12 py-3 rounded-full border-2 border-accent shadow-sm flex items-center gap-4">
-                        <i data-lucide="users" class="accent-text"></i> <span class="text-xl font-bold">المستخدم</span>
-                    </div>
-                    <div class="w-1 h-6 bg-[#C2A383]/30 rounded-full"></div>
-                    <div class="bg-white px-12 py-3 rounded-full border-2 border-accent shadow-sm flex items-center gap-4">
-                        <i data-lucide="layout" class="accent-text"></i> <span class="text-xl font-bold">الصفحة الرئيسية</span>
-                    </div>
-                    <div class="w-1 h-6 bg-[#C2A383]/30 rounded-full"></div>
-                    <div class="bg-white px-12 py-3 rounded-full border-2 border-accent shadow-sm flex items-center gap-4">
-                        <i data-lucide="map-pin" class="accent-text"></i> <span class="text-xl font-bold">اختيار مدينة</span>
-                    </div>
-                    <div class="w-1 h-6 bg-[#C2A383]/30 rounded-full"></div>
-                    <div class="bg-white px-12 py-3 rounded-full border-2 border-accent shadow-sm flex items-center gap-4">
-                        <i data-lucide="info" class="accent-text"></i> <span class="text-xl font-bold">عرض البيانات</span>
-                    </div>
-                    <div class="w-1 h-6 bg-[#C2A383]/30 rounded-full"></div>
-                    <div class="bg-white px-12 py-3 rounded-full border-2 border-accent shadow-sm flex items-center gap-4">
-                        <i data-lucide="coins" class="accent-text"></i> <span class="text-xl font-bold">أدوات السفر</span>
-                    </div>
-                    <div class="w-1 h-6 bg-[#C2A383]/30 rounded-full"></div>
-                    <div class="bg-white px-12 py-3 rounded-full border-2 border-accent shadow-sm flex items-center gap-4">
-                        <i data-lucide="message-square" class="accent-text"></i> <span class="text-xl font-bold">تواصل معنا</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 12. Low Fidelity -->
-        <div class="slide" id="slide-12">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">Low Fidelity Wireframe</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="grid grid-cols-2 gap-8">
-                    <div class="space-y-4">
-                        <p class="text-center font-bold">الصفحة الرئيسية</p>
-                        <div class="aspect-[4/3] bg-gray-100 rounded-xl border-2 border-dashed border-gray-300 p-4 flex flex-col gap-2">
-                            <div class="h-8 bg-gray-200 rounded w-full"></div>
-                            <div class="h-32 bg-gray-200 rounded w-full"></div>
-                            <div class="grid grid-cols-4 gap-2">
-                                <div class="h-12 bg-gray-200 rounded"></div>
-                                <div class="h-12 bg-gray-200 rounded"></div>
-                                <div class="h-12 bg-gray-200 rounded"></div>
-                                <div class="h-12 bg-gray-200 rounded"></div>
+                            <div class="text-center space-y-4">
+                                <div class="w-24 h-24 rounded-[2rem] shadow-inner border border-black/5" style="background-color: #4A3F35;"></div>
+                                <span class="text-lg font-bold">بني داكن</span>
                             </div>
                         </div>
                     </div>
-                    <div class="space-y-4">
-                        <p class="text-center font-bold">صفحة المدينة</p>
-                        <div class="aspect-[4/3] bg-gray-100 rounded-xl border-2 border-dashed border-gray-300 p-4 flex flex-col gap-2">
-                            <div class="h-24 bg-gray-200 rounded w-full"></div>
-                            <div class="h-8 bg-gray-200 rounded w-1/2"></div>
-                            <div class="h-16 bg-gray-200 rounded w-full"></div>
-                            <div class="grid grid-cols-2 gap-2 flex-1">
-                                <div class="bg-gray-200 rounded"></div>
-                                <div class="bg-gray-200 rounded"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 13. High Fidelity -->
-        <div class="slide" id="slide-13">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">مبادئ التصميم (High Fidelity)</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="space-y-8">
-                        <div>
-                            <h4 class="text-xl font-bold mb-4">لوحة الألوان</h4>
-                            <div class="flex gap-4">
-                                <div class="text-center space-y-2">
-                                    <div class="w-16 h-16 rounded-2xl shadow-inner border border-black/5" style="background-color: #F5F2ED;"></div>
-                                    <span class="text-xs font-medium">بيج رملي</span>
-                                </div>
-                                <div class="text-center space-y-2">
-                                    <div class="w-16 h-16 rounded-2xl shadow-inner border border-black/5" style="background-color: #C2A383;"></div>
-                                    <span class="text-xs font-medium">بني ذهبي</span>
-                                </div>
-                                <div class="text-center space-y-2">
-                                    <div class="w-16 h-16 rounded-2xl shadow-inner border border-black/5" style="background-color: #4A3F35;"></div>
-                                    <span class="text-xs font-medium">بني داكن</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold mb-4">الخطوط المستخدمة</h4>
-                            <div class="space-y-2">
-                                <p class="text-3xl font-bold">Cairo (Bold)</p>
-                                <p class="text-2xl font-medium">Cairo (Medium)</p>
-                                <p class="text-xl font-light">Cairo (Light)</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card flex flex-col justify-center">
-                        <h4 class="text-xl font-bold mb-4">فلسفة التصميم</h4>
-                        <ul class="space-y-4 text-lg opacity-80">
-                            <li>• البساطة والتقليل (Minimalism)</li>
-                            <li>• التركيز على الصور السياحية الجذابة</li>
-                            <li>• استخدام الظلال الناعمة والزوايا المستديرة</li>
-                            <li>• تباين لوني مريح للعين مستوحى من الطبيعة</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 14. Final: Home -->
-        <div class="slide" id="slide-14">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">الشاشات النهائية: الصفحة الرئيسية</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                    <img src="https://picsum.photos/seed/home/1200/600" alt="Home Page" class="w-full h-auto" referrerPolicy="no-referrer">
-                    <div class="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-white text-center p-8">
-                        <h3 class="text-5xl font-black mb-4">اكتشف العالم مع رحّال</h3>
-                        <p class="text-xl max-w-2xl opacity-90">رفيقك الأمثل في كل رحلة. دليل سياحي، ثقافة، لغة، وأدوات ذكية في مكان واحد.</p>
-                        <button class="mt-8 accent-bg px-10 py-4 rounded-full font-bold text-lg">ابدأ رحلتك</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 15. Final: Services -->
-        <div class="slide" id="slide-15">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">الشاشات النهائية: قسم الخدمات</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="bg-[#F5F2ED] p-12 rounded-[3rem] border border-[#E8E1D9] space-y-8">
-                    <h3 class="text-3xl font-bold text-center accent-text">خدماتنا</h3>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="bg-white p-8 rounded-3xl flex items-center gap-6 shadow-sm">
-                            <span class="text-4xl">🗺️</span>
-                            <span class="text-2xl font-bold">دليل سياحي</span>
-                        </div>
-                        <div class="bg-white p-8 rounded-3xl flex items-center gap-6 shadow-sm">
-                            <span class="text-4xl">💰</span>
-                            <span class="text-2xl font-bold">أدوات مالية</span>
-                        </div>
-                        <div class="bg-white p-8 rounded-3xl flex items-center gap-6 shadow-sm">
-                            <span class="text-4xl">🗣️</span>
-                            <span class="text-2xl font-bold">مساعد لغوي</span>
-                        </div>
-                        <div class="bg-white p-8 rounded-3xl flex items-center gap-6 shadow-sm">
-                            <span class="text-4xl">🤖</span>
-                            <span class="text-2xl font-bold">مساعد رحال الذكي</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 16. Final: City -->
-        <div class="slide" id="slide-16">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">الشاشات النهائية: صفحة المدينة</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="grid grid-cols-3 gap-6">
-                    <div class="col-span-2 space-y-6">
-                        <div class="h-64 bg-white rounded-3xl overflow-hidden relative shadow-md">
-                            <img src="https://picsum.photos/seed/paris/800/400" class="w-full h-full object-cover" referrerPolicy="no-referrer">
-                            <div class="absolute bottom-0 right-0 p-6 text-white bg-gradient-to-t from-black/60 to-transparent w-full">
-                                <h4 class="text-3xl font-bold">باريس، فرنسا</h4>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <h5 class="font-bold mb-2">نبذة عن المدينة</h5>
-                            <p class="text-sm opacity-70">تعتبر باريس عاصمة الموضة والفن، وتشتهر بمعالمها التاريخية مثل برج إيفل ومتحف اللوفر...</p>
-                        </div>
-                    </div>
-                    <div class="space-y-6">
-                        <div class="card">
-                            <h5 class="font-bold mb-4">أهم المعالم</h5>
-                            <div class="space-y-2">
-                                <div class="p-3 bg-[#F5F2ED] rounded-xl text-sm font-medium">برج إيفل</div>
-                                <div class="p-3 bg-[#F5F2ED] rounded-xl text-sm font-medium">متحف اللوفر</div>
-                                <div class="p-3 bg-[#F5F2ED] rounded-xl text-sm font-medium">قوس النصر</div>
-                            </div>
-                        </div>
-                        <div class="accent-bg p-6 rounded-3xl text-white">
-                            <h5 class="font-bold mb-2">نصيحة رحّال</h5>
-                            <p class="text-xs opacity-90">أفضل وقت لزيارة باريس هو في فصل الربيع حيث تكون الأجواء معتدلة.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 17. Final: Hotels -->
-        <div class="slide" id="slide-17">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">الشاشات النهائية: الفنادق والفعاليات</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="grid grid-cols-2 gap-8">
-                    <div class="space-y-4">
-                        <h4 class="text-xl font-bold flex items-center gap-2"><i data-lucide="hotel" class="accent-text"></i> الفنادق المقترحة</h4>
+                    <div>
+                        <h4 class="text-3xl font-black mb-8">الخطوط المستخدمة</h4>
                         <div class="space-y-4">
-                            <div class="card flex gap-4 shadow-sm">
-                                <div class="w-20 h-20 bg-gray-200 rounded-xl"></div>
-                                <div>
-                                    <p class="font-bold">فندق ريتز باريس</p>
-                                    <p class="text-xs opacity-60">فخامة كلاسيكية في قلب المدينة</p>
-                                    <div class="flex text-yellow-500 mt-1">★★★★★</div>
-                                </div>
+                            <p class="text-5xl font-black">Cairo (Black)</p>
+                            <p class="text-4xl font-bold">Cairo (Bold)</p>
+                            <p class="text-3xl font-medium">Cairo (Medium)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card flex flex-col justify-center p-12">
+                    <h4 class="text-3xl font-black mb-8">فلسفة التصميم</h4>
+                    <ul class="space-y-6 text-2xl opacity-80 leading-relaxed">
+                        <li>• البساطة والتقليل (Minimalism)</li>
+                        <li>• التركيز على الصور السياحية الجذابة</li>
+                        <li>• استخدام الظلال الناعمة والزوايا المستديرة</li>
+                        <li>• تباين لوني مريح للعين مستوحى من الطبيعة</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. Final: Home -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">الشاشات النهائية: الصفحة الرئيسية</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="relative rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border-8 border-white">
+                <img src="https://picsum.photos/seed/home/1600/900" alt="Home Page" class="w-full h-auto" referrerPolicy="no-referrer">
+                <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white text-center p-16">
+                    <h3 class="text-7xl font-black mb-8">اكتشف العالم مع رحّال</h3>
+                    <p class="text-3xl max-w-4xl opacity-90 leading-relaxed">رفيقك الأمثل في كل رحلة. دليل سياحي، ثقافة، لغة، وأدوات ذكية في مكان واحد.</p>
+                    <button class="mt-12 accent-bg px-16 py-6 rounded-full font-black text-2xl shadow-2xl hover:scale-105 transition-transform">ابدأ رحلتك</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15. Final: Services -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">الشاشات النهائية: قسم الخدمات</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="bg-[#F5F2ED] p-20 rounded-[5rem] border-2 border-[#E8E1D9] space-y-12">
+                <h3 class="text-5xl font-black text-center accent-text">خدماتنا</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="bg-white p-12 rounded-[3rem] flex items-center gap-10 shadow-xl">
+                        <span class="text-7xl">🗺️</span>
+                        <span class="text-3xl font-black">دليل سياحي</span>
+                    </div>
+                    <div class="bg-white p-12 rounded-[3rem] flex items-center gap-10 shadow-xl">
+                        <span class="text-7xl">💰</span>
+                        <span class="text-3xl font-black">أدوات مالية</span>
+                    </div>
+                    <div class="bg-white p-12 rounded-[3rem] flex items-center gap-10 shadow-xl">
+                        <span class="text-7xl">🗣️</span>
+                        <span class="text-3xl font-black">مساعد لغوي</span>
+                    </div>
+                    <div class="bg-white p-12 rounded-[3rem] flex items-center gap-10 shadow-xl">
+                        <span class="text-7xl">🤖</span>
+                        <span class="text-3xl font-black">مساعد رحال الذكي</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 16. Final: City -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">الشاشات النهائية: صفحة المدينة</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="md:col-span-2 space-y-8">
+                    <div class="h-96 bg-white rounded-[3rem] overflow-hidden relative shadow-2xl">
+                        <img src="https://picsum.photos/seed/paris/1200/800" class="w-full h-full object-cover" referrerPolicy="no-referrer">
+                        <div class="absolute bottom-0 right-0 p-12 text-white bg-gradient-to-t from-black/80 to-transparent w-full">
+                            <h4 class="text-5xl font-black">باريس، فرنسا</h4>
+                        </div>
+                    </div>
+                    <div class="card p-12">
+                        <h5 class="text-3xl font-black mb-4">نبذة عن المدينة</h5>
+                        <p class="text-xl opacity-80 leading-relaxed">تعتبر باريس عاصمة الموضة والفن، وتشتهر بمعالمها التاريخية مثل برج إيفل ومتحف اللوفر وقوس النصر، وهي وجهة عالمية تجذب ملايين السياح سنوياً.</p>
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <div class="card p-10">
+                        <h5 class="text-2xl font-black mb-6">أهم المعالم</h5>
+                        <div class="space-y-4">
+                            <div class="p-5 bg-[#F5F2ED] rounded-2xl text-xl font-bold">برج إيفل</div>
+                            <div class="p-5 bg-[#F5F2ED] rounded-2xl text-xl font-bold">متحف اللوفر</div>
+                            <div class="p-5 bg-[#F5F2ED] rounded-2xl text-xl font-bold">قوس النصر</div>
+                        </div>
+                    </div>
+                    <div class="accent-bg p-10 rounded-[3rem] text-white shadow-xl">
+                        <h5 class="text-2xl font-black mb-4">نصيحة رحّال</h5>
+                        <p class="text-lg opacity-95 leading-relaxed">أفضل وقت لزيارة باريس هو في فصل الربيع (أبريل إلى يونيو) حيث تكون الأجواء معتدلة والحدائق في أبهى صورها.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 17. Final: Hotels -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">الشاشات النهائية: الفنادق والفعاليات</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <h4 class="text-3xl font-black flex items-center gap-4"><i data-lucide="hotel" class="accent-text w-10 h-10"></i> الفنادق المقترحة</h4>
+                    <div class="space-y-6">
+                        <div class="card flex gap-8 shadow-xl p-8">
+                            <div class="w-32 h-32 bg-gray-200 rounded-[2rem] flex-shrink-0"></div>
+                            <div class="flex flex-col justify-center">
+                                <p class="text-2xl font-black">فندق ريتز باريس</p>
+                                <p class="text-lg opacity-60 mt-1">فخامة كلاسيكية في قلب المدينة</p>
+                                <div class="flex text-yellow-500 mt-3 text-xl">★★★★★</div>
                             </div>
-                            <div class="card flex gap-4 shadow-sm">
-                                <div class="w-20 h-20 bg-gray-200 rounded-xl"></div>
-                                <div>
-                                    <p class="font-bold">فندق شانغريلا</p>
-                                    <p class="text-xs opacity-60">إطلالة ساحرة على برج إيفل</p>
-                                    <div class="flex text-yellow-500 mt-1">★★★★★</div>
-                                </div>
+                        </div>
+                        <div class="card flex gap-8 shadow-xl p-8">
+                            <div class="w-32 h-32 bg-gray-200 rounded-[2rem] flex-shrink-0"></div>
+                            <div class="flex flex-col justify-center">
+                                <p class="text-2xl font-black">فندق شانغريلا</p>
+                                <p class="text-lg opacity-60 mt-1">إطلالة ساحرة على برج إيفل</p>
+                                <div class="flex text-yellow-500 mt-3 text-xl">★★★★★</div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="space-y-8">
+                    <h4 class="text-3xl font-black flex items-center gap-4"><i data-lucide="calendar" class="accent-text w-10 h-10"></i> الفعاليات الحالية</h4>
+                    <div class="space-y-6">
+                        <div class="card flex gap-8 shadow-xl p-8">
+                            <div class="w-32 h-32 bg-gray-200 rounded-[2rem] flex-shrink-0"></div>
+                            <div class="flex flex-col justify-center">
+                                <p class="text-2xl font-black">أسبوع الموضة</p>
+                                <p class="text-lg opacity-60 mt-1">مارس 2024 - قصر المؤتمرات</p>
+                                <span class="text-xs bg-[#F5F2ED] px-4 py-2 rounded-full mt-4 inline-block font-bold">فعالية كبرى</span>
+                            </div>
+                        </div>
+                        <div class="card flex gap-8 shadow-xl p-8">
+                            <div class="w-32 h-32 bg-gray-200 rounded-[2rem] flex-shrink-0"></div>
+                            <div class="flex flex-col justify-center">
+                                <p class="text-2xl font-black">مهرجان الموسيقى</p>
+                                <p class="text-lg opacity-60 mt-1">يونيو 2024 - حدائق لوكسمبورغ</p>
+                                <span class="text-xs bg-[#F5F2ED] px-4 py-2 rounded-full mt-4 inline-block font-bold">ثقافي</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 18. Final: Tools -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">الشاشات النهائية: الأدوات والتواصل</h2>
+                <div class="w-32 h-1.5 accent-bg mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="card space-y-10 p-16">
+                    <h4 class="text-4xl font-black text-center">محول العملات</h4>
+                    <div class="space-y-6">
+                        <input type="text" placeholder="أدخل المبلغ" class="w-full p-6 bg-[#F5F2ED] rounded-2xl border-none text-right text-2xl font-bold">
+                        <div class="flex gap-4">
+                            <select class="flex-1 p-6 bg-[#F5F2ED] rounded-2xl border-none text-right text-xl font-bold"><option>ريال سعودي</option></select>
+                            <select class="flex-1 p-6 bg-[#F5F2ED] rounded-2xl border-none text-right text-xl font-bold"><option>دولار أمريكي</option></select>
+                        </div>
+                        <button class="w-full py-6 accent-bg text-white font-black text-2xl rounded-2xl shadow-xl">تحويل</button>
+                    </div>
+                </div>
+                <div class="bg-[#4A3F35] p-16 rounded-[4rem] text-white flex flex-col justify-center items-center text-center space-y-8 shadow-2xl">
+                    <h4 class="text-5xl font-black">تواصل معنا</h4>
+                    <p class="text-2xl opacity-80 leading-relaxed">لديك استفسار؟ نحن هنا للمساعدة لجعل رحلتك لا تنسى وتجربة فريدة من نوعها.</p>
                     <div class="space-y-4">
-                        <h4 class="text-xl font-bold flex items-center gap-2"><i data-lucide="calendar" class="accent-text"></i> الفعاليات الحالية</h4>
-                        <div class="space-y-4">
-                            <div class="card flex gap-4 shadow-sm">
-                                <div class="w-20 h-20 bg-gray-200 rounded-xl"></div>
-                                <div>
-                                    <p class="font-bold">أسبوع الموضة</p>
-                                    <p class="text-xs opacity-60">مارس 2024 - قصر المؤتمرات</p>
-                                    <span class="text-[10px] bg-[#F5F2ED] px-2 py-1 rounded-full mt-2 inline-block">فعالية كبرى</span>
-                                </div>
-                            </div>
-                            <div class="card flex gap-4 shadow-sm">
-                                <div class="w-20 h-20 bg-gray-200 rounded-xl"></div>
-                                <div>
-                                    <p class="font-bold">مهرجان الموسيقى</p>
-                                    <p class="text-xs opacity-60">يونيو 2024 - حدائق لوكسمبورغ</p>
-                                    <span class="text-[10px] bg-[#F5F2ED] px-2 py-1 rounded-full mt-2 inline-block">ثقافي</span>
-                                </div>
-                            </div>
-                        </div>
+                        <p class="flex items-center justify-center gap-4 text-2xl font-bold"><i data-lucide="globe" class="w-8 h-8"></i> info@rehaal.com</p>
+                        <p class="flex items-center justify-center gap-4 text-2xl font-bold"><i data-lucide="smartphone" class="w-8 h-8"></i> +966 50 000 000</p>
                     </div>
+                    <div class="pt-10 text-sm opacity-30">جميع الحقوق محفوظة © 2024 رحال</div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- 18. Final: Tools -->
-        <div class="slide" id="slide-18">
-            <div class="slide-content">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-2">الشاشات النهائية: الأدوات والتواصل</h2>
-                    <div class="w-24 h-1 accent-bg mx-auto rounded-full"></div>
-                </div>
-                <div class="grid grid-cols-2 gap-8">
-                    <div class="card space-y-6">
-                        <h4 class="text-2xl font-bold text-center">محول العملات</h4>
-                        <div class="space-y-4">
-                            <input type="text" placeholder="أدخل المبلغ" class="w-full p-4 bg-[#F5F2ED] rounded-xl border-none text-right">
-                            <div class="flex gap-2">
-                                <select class="flex-1 p-4 bg-[#F5F2ED] rounded-xl border-none text-right"><option>ريال سعودي</option></select>
-                                <select class="flex-1 p-4 bg-[#F5F2ED] rounded-xl border-none text-right"><option>دولار أمريكي</option></select>
-                            </div>
-                            <button class="w-full py-4 accent-bg text-white font-bold rounded-xl">تحويل</button>
-                        </div>
-                    </div>
-                    <div class="bg-[#4A3F35] p-8 rounded-[2rem] text-white flex flex-col justify-center items-center text-center space-y-4">
-                        <h4 class="text-2xl font-bold">تواصل معنا</h4>
-                        <p class="opacity-70">لديك استفسار؟ نحن هنا للمساعدة لجعل رحلتك لا تنسى.</p>
-                        <div class="space-y-2">
-                            <p class="flex items-center gap-2"><i data-lucide="globe" size="16"></i> info@rehaal.com</p>
-                            <p class="flex items-center gap-2"><i data-lucide="smartphone" size="16"></i> +966 50 000 000</p>
-                        </div>
-                        <div class="pt-4 text-[10px] opacity-40">جميع الحقوق محفوظة © 2024 رحال</div>
-                    </div>
+    <!-- 19. Conclusion -->
+    <section class="slide">
+        <div class="slide-content text-center space-y-12">
+            <h2 class="text-9xl font-black tracking-tighter">شكراً لكم</h2>
+            <p class="text-4xl accent-text font-light">نسعد باستقبال أسئلتكم وملاحظاتكم</p>
+            <div class="pt-20">
+                <div class="inline-block p-10 bg-white rounded-[3rem] border-2 border-accent shadow-2xl">
+                    <p class="text-3xl font-black mb-2">مشروع تخرج: رحّال</p>
+                    <p class="text-2xl accent-text font-bold">2024 - 2025</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- 19. Conclusion -->
-        <div class="slide" id="slide-19">
-            <div class="slide-content text-center space-y-8">
-                <h2 class="text-6xl font-black">شكراً لكم</h2>
-                <p class="text-2xl accent-text">نسعد باستقبال أسئلتكم وملاحظاتكم</p>
-                <div class="pt-12">
-                    <div class="inline-block p-6 bg-white rounded-3xl border border-accent shadow-sm">
-                        <p class="text-xl font-bold">مشروع تخرج: رحّال</p>
-                        <p class="accent-text">2024 - 2025</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Navigation -->
-    <div class="p-8 flex justify-between items-center bg-white/50 backdrop-blur-sm border-t border-[#E8E1D9]">
-        <div class="flex gap-4">
-            <button id="prevBtn" class="nav-btn" disabled>
-                <i data-lucide="chevron-right"></i>
-            </button>
-            <button id="nextBtn" class="nav-btn">
-                <i data-lucide="chevron-left"></i>
-            </button>
-        </div>
-        
-        <div class="opacity-50 font-medium" id="slideCounter">
-            1 / 19
-        </div>
-
-        <div class="hidden md:flex items-center gap-2 accent-text font-bold">
-            <i data-lucide="compass" class="w-5 h-5"></i>
-            <span>رحّال</span>
-        </div>
-    </div>
 </div>
 
 <script>
     // Initialize Lucide Icons
     lucide.createIcons();
-
-    let currentSlide = 1;
-    const totalSlides = 19;
-
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const slideCounter = document.getElementById('slideCounter');
-    const progressFill = document.getElementById('progressFill');
-
-    function updateSlides() {
-        // Update slide visibility
-        for (let i = 1; i <= totalSlides; i++) {
-            const slide = document.getElementById(`slide-${i}`);
-            if (i === currentSlide) {
-                slide.classList.add('active');
-            } else {
-                slide.classList.remove('active');
-            }
-        }
-
-        // Update buttons
-        prevBtn.disabled = currentSlide === 1;
-        nextBtn.disabled = currentSlide === totalSlides;
-
-        // Update counter and progress
-        slideCounter.innerText = `${currentSlide} / ${totalSlides}`;
-        progressFill.style.width = `${(currentSlide / totalSlides) * 100}%`;
-    }
-
-    nextBtn.addEventListener('click', () => {
-        if (currentSlide < totalSlides) {
-            currentSlide++;
-            updateSlides();
-        }
-    });
-
-    prevBtn.addEventListener('click', () => {
-        if (currentSlide > 1) {
-            currentSlide--;
-            updateSlides();
-        }
-    });
-
-    // Keyboard Navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') {
-            if (currentSlide > 1) {
-                currentSlide--;
-                updateSlides();
-            }
-        } else if (e.key === 'ArrowLeft') {
-            if (currentSlide < totalSlides) {
-                currentSlide++;
-                updateSlides();
-            }
-        }
-    });
 </script>
 
 </body>
